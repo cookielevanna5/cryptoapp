@@ -3,13 +3,13 @@ when:
   event: push
 
 steps:
-  # dockle:
-  #   image: euryecetelecom/woodpeckerci-dockle
-  #   privileged: true
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #   settings:
-  #     dockerfile: Dockerfile.io
+  dockle:
+    image: euryecetelecom/woodpeckerci-dockle
+    privileged: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    settings:
+      dockerfile: Dockerfile.io
 
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
