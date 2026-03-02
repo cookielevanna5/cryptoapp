@@ -3,11 +3,6 @@ when:
   event: push
 
 steps:
-  # env:
-  #   image: redhat/ubi9:latest
-  #   commands:
-  #     - env | sort
-
   # dockle:
   #   image: euryecetelecom/woodpeckerci-dockle
   #   privileged: true
