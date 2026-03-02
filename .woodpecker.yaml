@@ -3,10 +3,15 @@ when:
   event: push
 
 steps:
-  dockle:
-    image: euryecetelecom/woodpeckerci-dockle
-    privileged: true
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    settings:
-      dockerfile: Dockerfile.io
+  env:
+    image: redhat/ubi9:latest
+    commands:
+      - env | sort
+
+  # dockle:
+  #   image: euryecetelecom/woodpeckerci-dockle
+  #   privileged: true
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   settings:
+  #     dockerfile: Dockerfile.io
