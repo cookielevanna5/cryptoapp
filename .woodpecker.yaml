@@ -3,16 +3,16 @@ when:
   event: push
 
 steps:
-  dockle:
-    image: euryecetelecom/woodpeckerci-dockle
-    # privileged: true
-    # volumes:
-    #   - /var/run/docker.sock:/var/run/docker.sock
+  peckify:
+    image: woodpeckercommunity/peckify:latest
+    pull: true
     settings:
-      dockerfile: Dockerfile.io
+      check: true
+      log_level: debug
+      path: src/
 
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
     settings:
       dry_run: true
-      dockerfile: Dockerfile.io
+      dockerfile: Dockerfile.worker
