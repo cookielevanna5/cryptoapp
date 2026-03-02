@@ -7,9 +7,13 @@ steps:
     image: woodpeckercommunity/peckify:latest
     pull: true
     settings:
-      check: true
-      log_level: debug
+      write: true
       path: src/
+      git_name: Peckify
+      git_email: Peckify@peckify.com
+      forge_user: ${CI_COMMIT_AUTHOR}
+      forge_token:
+        from_secret: github-token
 
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
