@@ -3,20 +3,15 @@ when:
   event: push
 
 steps:
-  peckify:
-    image: woodpeckercommunity/peckify:latest
-    pull: true
+  dockle:
+    image: euryecetelecom/woodpeckerci-dockle
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     settings:
-      write: true
-      path: src/
-      git_name: Peckify
-      git_email: Peckify@peckify.com
-      forge_user: ${CI_COMMIT_AUTHOR}
-      forge_token:
-        from_secret: github-token
+      dockerfile: Dockerfile.io
 
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
     settings:
       dry_run: true
-      dockerfile: Dockerfile.worker
+      dockerfile: Dockerfile.io
