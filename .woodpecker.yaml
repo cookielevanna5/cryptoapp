@@ -26,10 +26,9 @@ steps:
     privileged: true
     settings:
       repo: repo
-      target: target
       containerfile: Dockerfile.io
       skip_push: true
-      skip_build: true
+      # skip_build: true
       tags:
         - latest
       # context: .
