@@ -36,5 +36,6 @@ steps:
       dry_run: true
       pull_image: false
       dockerfile: Dockerfile.io
-      buildkit_driveropt:
-        - "driver=docker"
+      registry: artifactory-false.com
+      password: password
+      username: user
