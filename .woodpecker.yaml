@@ -28,7 +28,7 @@ steps:
       containerfile: Dockerfile.io
       skip_push: true
       auto_tag: true
-      context: .
+      # context: .
 
   # dockle:
   #   image: euryecetelecom/woodpeckerci-dockle
