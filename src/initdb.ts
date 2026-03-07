@@ -1,6 +1,6 @@
-import mysql from 'mysql2';
-import util from 'util';
-import config from 'config';
+import mysql from "mysql2";
+import util from "util";
+import config from "config";
 
 // const connection = mysql.createConnection({
 //   host: config.get<string>('mysql.host'),
@@ -10,8 +10,8 @@ import config from 'config';
 //   port: config.get<number>('mysql.port')
 // });
 
-const connection = mysql.createConnection(config.get('mysql'));
-  
+const connection = mysql.createConnection(config.get("mysql"));
+
 const connect = util.promisify(connection.connect).bind(connection);
 const query = util.promisify(connection.query).bind(connection);
 (async () => {
@@ -39,7 +39,7 @@ const query = util.promisify(connection.query).bind(connection);
     `);
     console.log("created table users_symbols!");
     connection.end();
-} catch (e) {
+  } catch (e) {
     console.log(e);
   }
 })();
