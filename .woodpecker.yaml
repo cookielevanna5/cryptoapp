@@ -16,4 +16,5 @@ steps:
     image: woodpeckerci/plugin-docker-buildx
     settings:
       dry_run: true
+      pull_image: false
       dockerfile: Dockerfile.io
