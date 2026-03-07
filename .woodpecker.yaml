@@ -21,6 +21,14 @@ steps:
     commands:
       - hadolint --ignore DL3003 --ignore DL3018 Dockerfile.worker
 
+  build:
+    image: ghcr.io/404systems/plugin-buildah
+    privileged: true
+    settings:
+      containerfile: Dockerfile.io
+      skip_push: true
+      auto_tag: true
+
   # dockle:
   #   image: euryecetelecom/woodpeckerci-dockle
   #   volumes:
@@ -30,12 +38,9 @@ steps:
   #     dockle-ignores: CIS-DI-0006, CIS-DI-0005
   #     exit-code: 0
 
-  docker-build:
-    image: woodpeckerci/plugin-docker-buildx
-    settings:
-      dry_run: true
-      pull_image: false
-      dockerfile: Dockerfile.io
-      registry: artifactory-false.com
-      password: password
-      username: user
+  # docker-build:
+  #   image: woodpeckerci/plugin-docker-buildx
+  #   settings:
+  #     dry_run: true
+  #     pull_image: false
+  #     dockerfile: Dockerfile.io
