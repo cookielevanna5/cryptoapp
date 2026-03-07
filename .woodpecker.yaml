@@ -5,19 +5,19 @@ when:
 steps:
   lint-dockerfile.io:
     image: hadolint/hadolint:v2.12.1-beta-alpine
-    # depends_on: []
+    depends_on: []
     commands:
       - hadolint --ignore DL3003 --ignore DL3018 Dockerfile.io
 
   lint-dockerfile.app:
     image: hadolint/hadolint:v2.12.1-beta-alpine
-    # depends_on: []
+    depends_on: []
     commands:
       - hadolint --ignore DL3003 --ignore DL3018 Dockerfile.app
 
   lint-dockerfile.worker:
     image: hadolint/hadolint:v2.12.1-beta-alpine
-    # depends_on: []
+    depends_on: []
     commands:
       - hadolint --ignore DL3003 --ignore DL3018 Dockerfile.worker
 
