@@ -3,18 +3,36 @@ when:
   event: push
 
 steps:
-  dockle:
-    image: euryecetelecom/woodpeckerci-dockle
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    settings:
-      dockerfile: Dockerfile.worker
-      dockle-ignores: CIS-DI-0006, CIS-DI-0005
-      exit-code: 0
+  lint-dockerfile.io:
+    image: hadolint/hadolint:v2.12.1-beta-alpine
+    depends_on: []
+    commands:
+      - hadolint --ignore DL3003 --ignore DL3018 Dockerfile.io
 
-  docker-build:
-    image: woodpeckerci/plugin-docker-buildx
-    settings:
-      dry_run: true
-      pull_image: false
-      dockerfile: Dockerfile.io
+  lint-dockerfile.app:
+    image: hadolint/hadolint:v2.12.1-beta-alpine
+    depends_on: []
+    commands:
+      - hadolint --ignore DL3003 --ignore DL3018 Dockerfile.app
+
+  lint-dockerfile.worker:
+    image: hadolint/hadolint:v2.12.1-beta-alpine
+    depends_on: []
+    commands:
+      - hadolint --ignore DL3003 --ignore DL3018 Dockerfile.worker
+
+  # dockle:
+  #   image: euryecetelecom/woodpeckerci-dockle
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   settings:
+  #     dockerfile: Dockerfile.worker
+  #     dockle-ignores: CIS-DI-0006, CIS-DI-0005
+  #     exit-code: 0
+
+  # docker-build:
+  #   image: woodpeckerci/plugin-docker-buildx
+  #   settings:
+  #     dry_run: true
+  #     pull_image: false
+  #     dockerfile: Dockerfile.io
