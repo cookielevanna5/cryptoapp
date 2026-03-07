@@ -9,12 +9,12 @@ steps:
   # IMAGE_ID=$(docker images -q dockle-ci-test:${CI_COMMIT_SHA})
   # dockle --exit-code ${PLUGIN_EXIT_CODE} --exit-level ${PLUGIN_EXIT_LEVEL} $IMAGE_ID
   # ---- maybe also in the end `docker rmi $IMAGE_ID`
-  # dockle:
-  #   image: euryecetelecom/woodpeckerci-dockle
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #   settings:
-  #     dockerfile: Dockerfile.io
+  dockle:
+    image: euryecetelecom/woodpeckerci-dockle
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    settings:
+      dockerfile: Dockerfile.io
 
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
