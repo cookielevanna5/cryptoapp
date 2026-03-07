@@ -22,7 +22,7 @@ steps:
       - hadolint --ignore DL3003 --ignore DL3018 Dockerfile.worker
 
   dockle:
-    image: dockle-custom:latest
+    image: euryecetelecom/woodpeckerci-dockle
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     settings:
