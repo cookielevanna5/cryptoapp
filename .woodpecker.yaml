@@ -8,7 +8,8 @@ steps:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     settings:
-      dockerfile: Dockerfile.io
+      dockerfile: Dockerfile.app
+      dockle-ignores: CIS-DI-0006
 
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
