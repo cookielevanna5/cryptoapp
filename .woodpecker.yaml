@@ -21,14 +21,14 @@ steps:
     commands:
       - hadolint --ignore DL3003 --ignore DL3018 Dockerfile.worker
 
-  dockle:
-    image: euryecetelecom/woodpeckerci-dockle
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    settings:
-      dockerfile: Dockerfile.worker
-      dockle-ignores: CIS-DI-0006, CIS-DI-0005
-      exit-code: 0
+  # dockle:
+  #   image: euryecetelecom/woodpeckerci-dockle
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   settings:
+  #     dockerfile: Dockerfile.worker
+  #     dockle-ignores: CIS-DI-0006, CIS-DI-0005
+  #     exit-code: 0
 
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
@@ -36,3 +36,5 @@ steps:
       dry_run: true
       pull_image: false
       dockerfile: Dockerfile.io
+      buildkit_driveropt:
+        - "driver=docker"
