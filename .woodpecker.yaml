@@ -25,6 +25,8 @@ steps:
     image: ghcr.io/404systems/plugin-buildah
     privileged: true
     settings:
+      repo: repo
+      target: target
       containerfile: Dockerfile.io
       skip_push: true
       skip_build: true
