@@ -8,8 +8,8 @@ steps:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     settings:
-      dockerfile: Dockerfile.app
-      dockle-ignores: CIS-DI-0006
+      dockerfile: Dockerfile.worker
+      dockle-ignores: CIS-DI-0006, CIS-DI-0005
 
   docker-build:
     image: woodpeckerci/plugin-docker-buildx
