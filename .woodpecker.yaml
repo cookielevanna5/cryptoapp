@@ -27,7 +27,9 @@ steps:
     settings:
       containerfile: Dockerfile.io
       skip_push: true
-      auto_tag: true
+      skip_build: true
+      tags:
+        - latest
       # context: .
 
   # dockle:
