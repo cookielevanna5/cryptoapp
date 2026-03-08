@@ -42,7 +42,7 @@ steps:
   #     exit-code: 0
 
   docker-build:
-    image: woodpeckerci/plugin-docker-buildx:5.2.2-insecure
+    image: woodpeckerci/plugin-docker-buildx:5.2.2
     settings:
       dry_run: true
       pull_image: false
