@@ -47,4 +47,5 @@ steps:
       dry_run: true
       pull_image: false
       dockerfile: Dockerfile.io
-      buildkit_driveropt: image=moby/buildkit:master
+      buildkit_driveropt:
+        - "image=moby/buildkit:master"
