@@ -42,9 +42,10 @@ steps:
   #     dockle-ignores: CIS-DI-0006, CIS-DI-0005
   #     exit-code: 0
 
-  # docker-build:
-  #   image: woodpeckerci/plugin-docker-buildx
-  #   settings:
-  #     dry_run: true
-  #     pull_image: false
-  #     dockerfile: Dockerfile.io
+  docker-build:
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      dry_run: true
+      pull_image: false
+      dockerfile: Dockerfile.io
+      buildkit_driveropt: "image=moby/buildkit:master"
