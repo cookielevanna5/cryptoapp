@@ -21,17 +21,16 @@ steps:
     commands:
       - hadolint --ignore DL3003 --ignore DL3018 Dockerfile.worker
 
-  build:
-    image: ghcr.io/404systems/plugin-buildah
-    privileged: true
-    settings:
-      repo: repo # its the entire image's name :(
-      containerfile: Dockerfile.io
-      skip_push: true
-      # skip_build: true
-      tags:
-        - latest
-      # context: .
+  # buildah:
+  #   image: ghcr.io/404systems/plugin-buildah
+  #   privileged: true
+  #   settings:
+  #     repo: repo # its the entire image's name :(
+  #     containerfile: Dockerfile.io
+  #     skip_push: true
+  #     # skip_build: true
+  #     tags:
+  #       - latest
 
   # dockle:
   #   image: euryecetelecom/woodpeckerci-dockle
@@ -48,4 +47,4 @@ steps:
       dry_run: true
       pull_image: false
       dockerfile: Dockerfile.io
-      buildkit_driveropt: "image=moby/buildkit:master"
+      buildkit_driveropt: image=moby/buildkit:master
