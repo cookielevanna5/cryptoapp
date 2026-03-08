@@ -21,6 +21,26 @@ steps:
     commands:
       - hadolint --ignore DL3003 --ignore DL3018 Dockerfile.worker
 
+  # buildah:
+  #   image: ghcr.io/404systems/plugin-buildah
+  #   privileged: true
+  #   settings:
+  #     repo: repo # its the entire image's name
+  #     containerfile: Dockerfile.io
+  #     skip_push: true
+  #     # skip_build: true
+  #     tags:
+  #       - latest
+
+  # dockle:
+  #   image: euryecetelecom/woodpeckerci-dockle
+  #   volumes:
+  #     - /var/run/docker.sockx:/var/run/docker.sock
+  #   settings:
+  #     dockerfile: Dockerfile.worker
+  #     dockle-ignores: CIS-DI-0006, CIS-DI-0005
+  #     exit-code: 0
+
   docker-build:
     image: woodpeckerci/plugin-docker-buildx:5.2.2
     settings:
