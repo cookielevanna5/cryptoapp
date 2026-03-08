@@ -35,19 +35,17 @@ steps:
   # dockle:
   #   image: euryecetelecom/woodpeckerci-dockle
   #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
+  #     - /var/run/docker.sockx:/var/run/docker.sock
   #   settings:
   #     dockerfile: Dockerfile.worker
   #     dockle-ignores: CIS-DI-0006, CIS-DI-0005
   #     exit-code: 0
 
   docker-build:
-    image: woodpeckerci/plugin-docker-buildx:latest-insecure
+    image: woodpeckerci/plugin-docker-buildx:5.2.2-insecure
     settings:
       dry_run: true
       pull_image: false
       dockerfile: Dockerfile.io
-      remote_builders:
-        - local
       buildkit_driveropt:
         - "image=moby/buildkit:master"
