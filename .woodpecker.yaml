@@ -36,4 +36,4 @@ steps:
       - whoami
       - ls -ld .
       - ls -l | head
-      - echo "hello" >>> a.txt
+      - echo "hello" >> a.txt
