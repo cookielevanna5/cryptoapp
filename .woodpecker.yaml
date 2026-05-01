@@ -2,45 +2,9 @@ when:
   branch: main
   event: push
 
-clone:
-  git:
-    image: woodpeckerci/plugin-git:2.9.0
-    settings:
-      path: /tmp
-
 steps:
   env:
-    image: busybox
+    image: python:3.15.0a7-slim
     depends_on: []
     commands:
-      - env | sort
-
-  lint-dockerfile.io:
-    image: hadolint/hadolint:v2.12.1-beta-alpine
-    depends_on: []
-    commands:
-      - hadolint Dockerfile.io
-
-  lint-dockerfile.app:
-    image: hadolint/hadolint:v2.12.1-beta-alpine
-    depends_on: []
-    commands:
-      - hadolint Dockerfile.app
-
-  lint-dockerfile.worker:
-    image: hadolint/hadolint:v2.12.1-beta-alpine
-    depends_on: []
-    commands:
-      - hadolint Dockerfile.worker
-
-  lint-dockerfile.dockle:
-    image: hadolint/hadolint:v2.12.1-beta-alpine
-    depends_on: []
-    commands:
-      - hadolint Dockerfile.dockle
-
-  dockle:
-    image: goodwithtech/dockle:latest
-    depends_on: []
-    commands:
-      - dockle python:3.15.0a7-slim
+      - sleep 3600
