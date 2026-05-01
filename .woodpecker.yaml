@@ -27,13 +27,14 @@ steps:
     commands:
       - hadolint Dockerfile.worker
 
-  python:
-    image: python:3.15.0a7-slim
+  lint-dockerfile.dockle:
+    image: hadolint/hadolint:v2.12.1-beta-alpine
     depends_on: []
     commands:
-      - echo "=== DEBUG ==="
-      - id
-      - whoami
-      - ls -ld .
-      - ls -l | head
-      - echo "hello" >> a.txt
+      - hadolint Dockerfile.dockle
+
+  dockle:
+    image: dockle:latest
+    depends_on: []
+    commands:
+      - /bin/bash dockle --exit-code 1 --exit-level warn python:3.15.0a7-slim
