@@ -37,4 +37,4 @@ steps:
     image: goodwithtech/dockle:latest
     depends_on: []
     commands:
-      - /bin/bash dockle --exit-code 1 --exit-level warn python:3.15.0a7-slim
+      - dockle --exit-code 1 --exit-level warn python:3.15.0a7-slim
